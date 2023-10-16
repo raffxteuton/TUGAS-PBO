@@ -1,0 +1,31 @@
+import tkinter as tk
+from tkinter import ttk
+
+def hitung_persegi():
+    sisi = float(entry_sisi.get())
+    luas = sisi ** 2
+    keliling = 4 * sisi
+    hasil_label.config(text=f"Luas: {luas:.2f}, Keliling: {keliling:.2f}")
+
+# Membuat GUI
+root = tk.Tk()
+root.title("Kalkulator Persegi")
+
+frame = ttk.Frame(root)
+frame.grid(row=0, column=0, padx=20, pady=20)
+
+# Input sisi persegi
+sisi_label = ttk.Label(frame, text="Panjang Sisi:")
+sisi_label.grid(row=0, column=0, sticky="w")
+entry_sisi = ttk.Entry(frame)
+entry_sisi.grid(row=0, column=1, padx=10, pady=10)
+
+# Tombol hitung
+hitung_button = ttk.Button(frame, text="Hitung", command=hitung_persegi)
+hitung_button.grid(row=1, column=0, columnspan=2, pady=10)
+
+# Label hasil
+hasil_label = ttk.Label(frame, text="", font=("Helvetica", 12))
+hasil_label.grid(row=2, column=0, columnspan=2, pady=10)
+
+root.mainloop()
